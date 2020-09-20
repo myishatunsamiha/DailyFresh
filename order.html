@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+
+  <!-- user for cart icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+
+  <title>DailyFresh</title>
+</head>
+
+<body>
+
+
+  <div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(37, 34, 34)">
+      <!-- Toggler. show collapsed navbar when reach large screen -->
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarMain"
+        aria-controls="navbarToggler1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <!-- includes the 3 bar icon -->
+      </button>
+
+      <!-- brand name -->
+      <a href="#" class="navbar-brand text-secondary"><img src="/images/logo_2.png" alt="StyleClothing" height="50"
+          width="120" loading="lazy" /></a>
+
+      <!-- navbar content -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <!-- unordered list -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link color_nav" href="home.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link color_nav" href="order.html">Order</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link color_nav" href="admin.html">Admin</a>
+          </li>
+        </ul>
+
+        <!-- form -->
+        <form class="form-inline">
+
+          <button class="btn btn-info mr-2" type="button" data-toggle="modal" data-target="#modalUpdateContact">
+            <i class="fa fa-edit"></i> Contact
+          </button>
+          <a href="home.html" class="btn btn-danger mr-2" type="button">Log Out</a>
+
+        </form>
+      </div>
+    </nav>
+    <!-- End of nav bar -->
+
+
+    <!-- start of contact info -->
+      <!-- modal for Register-->
+    <div class="modal fade" id="modalUpdateContact" tabindex="-1" role="dialog" aria-labelledby="modalUpdateContactLabel"
+      aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalUpdateContactLabel">Account Information</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+        <div class="modal-body">
+          <form class=""  method="" novalidate>
+
+
+
+            <div class="row">
+              <div class="col-12 col-lg-6">
+                <div class="form-group">
+                  <label for="vaildFname">First Name</label>
+                  <input type="text" class="form-control textInputBg" id="validFname"  placeholder="First Name" onkeyup="checkfirstname()"/>
+                  <small style="color: gray;">start with capital,min 2 letters,no space</small>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <div class="form-group">
+                  <label for="vaildLname">Last Name</label>
+                  <input type="text" class="form-control textInputBg" id="validLname" value="" placeholder="Last Name" required />
+                  <small style="color: gray;">start with capital,min 2 letters,no space</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 ">
+                <div class="form-group">
+                  <label for="vaildTel">Phone</label>
+                  <input type="tel" class="form-control textInputBg" id="validTel" placeholder="Phone Number" required />
+                  <small style="color: gray;">start with +8801 followed by 9 digits</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-lg-6">
+                <div class="form-group">
+                  <label for="vaildCity">City</label>
+                  <select class="custom-select textInputBg" required>
+                    <option selected value="Dhaka">Dhaka</option>
+                    <option value="Chittagong">Chittagong</option>
+                    <option value="Sylhet">Sylhet</option>
+                    <option value="Khulna">Khulna</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <div class="form-group">
+                  <label for="vaildArea">Area</label>
+                  <select class="custom-select textInputBg" required>
+                    <option selected value="Banasree">Banasree</option>
+                    <option value="Azimpur">Azimpur</option>
+                    <option value="Dhanmondi">Dhanmondi</option>
+                    <option value="Uttara">Uttara</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="row">
+            
+              <div class="col-12 col-lg-6">
+                <div class="form-group">
+                  <label for="validRoad">Road No.</label>
+                  <input type="text" class="form-control textInputBg" id="validRoad" />
+                  <small style="color: gray;">1 to 4 digits long</small>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <div class="form-group">
+                  <label for="validHouse">House No.</label>
+                  <input type="text" class="form-control textInputBg" id="validHouse" />
+                  <small style="color: gray;">1 to 4 digits long</small>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="registerPass">Password</label>
+                  <input type="password" class="form-control textInputBg" id="registerPass" required />
+                  <small style="color: gray;">Min length 6, 1 capital, 1 digit, 1 special character</small>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="registerConfirmPass">Confirm Password</label>
+                  <input type="password" class="form-control textInputBg" id="registerConfirmPass" required />
+                  <small style="color: gray;">Enter same password</small>
+                </div>
+              </div>
+            </div>
+
+
+           <input type="submit" class="btn btn-info btn-block" value="Update"> 
+            
+          </form>
+        </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- end of contact info -->
+
+
+
+
+
+
+
+
+
+    <br><br><br>
+    <div id="carouselId" class="carousel slide" data-ride="carousel">
+      <!-- carousel indicators -->
+      <div class="carousel-inner" id="caroInner">
+        <div class="carousel-item active" data-interval="3000">
+          <img src="images/orderBackground1.png" class="d-block" alt="" style="margin: auto; height:10vh; width: auto;"/>
+        </div>
+      </div>
+    </div>
+
+    <br/><br/>
+
+
+    <!-- Ordered items tabel -->
+    <div class="table-responsive-md">
+      <table class="table table-hover" style="background-color: #E1EEDD;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Add</th>
+            <th>Qty</th>
+            <th>Deduct</th>
+            <th>Price(Tk)</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody><tr><td><img src="images/cucumber.png" alt="" style="width:70px; height: 60px;"/></td><td><h6 class="card-title">Cucumber</h6></td><td><button type="button" class="btn btn-success btn-xs" style="border-radius: 10px;" onclick=increaseQty()>+</button></td><td><h6 class="card-title">2</h6></td><td><button type="button" class="btn btn-danger btn-xs" style="border-radius: 10px;" onclick=decreaseQty()>-</button></td><td><h6 class="card-title" id="totalAmnt">90</h6></td><td><button class="btn btn-xs" style="border-radius: 10px;" onclick=deleteCartItem()><i class="fa fa-close"></i></button></td><input type="hidden" value="45"></tr><tr><td><img src="images/mutton.png" alt="" style="width:70px; height: 60px;"/></td><td><h6 class="card-title">Mutton</h6></td><td><button type="button" class="btn btn-success btn-xs" style="border-radius: 10px;" onclick=increaseQty()>+</button></td><td><h6 class="card-title">1</h6></td><td><button type="button" class="btn btn-danger btn-xs" style="border-radius: 10px;" onclick=decreaseQty()>-</button></td><td><h6 class="card-title" id="totalAmnt">900</h6></td><td><button class="btn btn-xs" style="border-radius: 10px;" onclick=deleteCartItem()><i class="fa fa-close"></i></button></td><input type="hidden" value="900"></tr><tr><td><img src="images/potato.png" alt="" style="width:70px; height: 60px;"/></td><td><h6 class="card-title">Potato</h6></td><td><button type="button" class="btn btn-success btn-xs" style="border-radius: 10px;" onclick=increaseQty()>+</button></td><td><h6 class="card-title">2</h6></td><td><button type="button" class="btn btn-danger btn-xs" style="border-radius: 10px;" onclick=decreaseQty()>-</button></td><td><h6 class="card-title" id="totalAmnt">50</h6></td><td><button class="btn btn-xs" style="border-radius: 10px;" onclick=deleteCartItem()><i class="fa fa-close"></i></button></td><input type="hidden" value="25"></tr>
+          
+          
+        </tbody>
+      </table>
+    </div>
+
+    <br /><br />
+
+    
+  <div class="row m-1">
+    <div class="col-md-5 col-sm-12 p-3 mr-auto mb-2 shadow " style="background-color: rgba(126, 138, 126, 0.52); border-radius:10px;">
+
+
+      <h4 style="text-align: center;">Order id: vx23j</h4>  
+      <hr/>
+      <br/>
+        
+      
+      <div class="row">
+        <div class="col-3 mr-auto">
+          Subtotal 
+        </div>
+        <div class="col-3">
+          ৳0
+        </div>
+      </div><br>    
+
+      <div class="row">
+        <div class="col-3 mr-auto">
+          Delivery 
+        </div>
+        <div class="col-3">
+          ৳20
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-3 mr-auto">
+          Discount
+        </div>
+        <div class="col-3">
+          ৳0
+        </div>
+      </div><hr>
+
+      <div class="row">
+        <div class="col-3 mr-auto">
+          Total
+        </div>
+        <div class="col-3">
+          ৳20
+        </div>  
+      </div>  
+
+      <br/>
+      <div class="row">
+        <div class="col-5 ml-auto">
+         <button type="button" class="btn btn-info btn-sm btn-block">Proceed</button>
+        </div>  
+      </div> 
+      <br>
+      <div class="row">
+        <div class="col-5 ml-auto">
+         <button type="button" class="btn btn-danger btn-sm btn-block">Cancel</button>
+        </div>  
+      </div> 
+     
+    </div>
+
+    <div class="col-md-5 col-sm-12 mb-2 p-3 shadow " style="background-color: rgba(126, 138, 126, 0.52); border-radius:10px;">
+      <form method="" action="" novalidate>
+        <div class="row">
+          <div class="col-4 mr-auto">
+          </div>
+
+          <div class="col-8">
+            <i class="fa fa-cc-visa pr-1" style="font-size: 38px; color:rgb(5, 47, 5);"></i>
+            <i class="fa fa-cc-mastercard pr-1" style="font-size: 38px; color:rgb(5, 47, 5);"></i>
+            <i class="fa fa-cc-amex pr-1" style="font-size: 38px; color:rgb(5, 47, 5);"></i>
+          </div>
+
+          
+        </div><br>
+        
+          <div class="row">
+            <div class="col-4 mr-auto">
+              Card Name
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control textInputBg" id="cardName" placeholder="min len 3, all capital letters">
+    
+            </div>
+          </div><br>
+          
+          <div class="row">
+            <div class="col-4 mr-auto">
+              Card No.
+            </div>
+            <div class="col-8">
+              <input type="text" class=" form-control textInputBg" id="cardNo" placeholder="must be 16 digits">
+            </div>
+          </div><br>
+    
+          <div class="row">
+            <div class="col-4 mr-auto">
+              MM/YY
+            </div>
+            <div class="col-8">
+              <input type="text" class=" form-control textInputBg" id="cardExpireDate" placeholder="01-12/01-99">
+            </div>
+          </div><br>
+    
+          <div class="row">
+            <div class="col-4 mr-auto">
+              CVC
+            </div>
+            <div class="col-8">
+              <input type="text" class=" form-control textInputBg" id="cardCVC" placeholder="must be 3 digits">
+            </div>
+          </div><br>
+    
+          <div class="row">
+            <div class="col-4 mr-auto">
+              Amonut
+            </div>
+            <div class="col-8">
+              <input type="text" class=" form-control textInputBg" value="20" style="background-color: rgba(210, 216, 205, 0.808); color:black" disabled>
+            </div>
+          </div><br>
+    
+          <div class="row">
+            <div class="col-8 ml-auto">
+              <a href="#" class="btn btn-info btn-sm btn-block" role="button">Pay</a>
+            </div>
+          </div>
+        
+      </form>
+    </div>
+  </div>
+
+
+  
+    <!-- Footer -->
+    <div class="bg-dark">
+      <div class="row text-white p-5">
+        <div class="col-12 col-lg-6">
+          <img src="/images/logo_2.png" alt="DailyFresh" height="30" width="90" loading="lazy" />
+          <p style="font-size:90%;">- Buy Fresh, Eat Fresh, Live Healthy</p>
+          <br>
+          <small>Call Us:
+            <a href="#">+01922181860</a>
+          </small>
+          <br>
+          <small>Email:
+            <a href="#">dailyfreshltd@gmail.com</a>
+          </small>
+        </div>
+
+        <div class="col-12 col-lg-2">
+          <h5>Explore</h5>
+
+          <small>
+            <a href="#">Home</a>
+          </small>
+          <br>
+          <small>
+            <a href="#">Order</a>
+          </small>
+          <br>
+          <small>
+            <a href="#">Admin</a>
+          </small>
+          <br>
+        </div>
+
+
+        <div class="col-12 col-lg-2">
+          <h5>Team Work</h5>
+
+          <small>
+            <a href="#">Team Members</a>
+          </small>
+          <br>
+          <small>
+            <a href="#">Who We Are?</a>
+          </small>
+          <br>
+          <small>
+            <a href="#">Objectives</a>
+          </small>
+          <br>
+        </div>
+
+      </div>
+
+      <div>
+        <footer class="text-center text-info">© Copyright 2020</footer>
+      </div>
+    </div> 
+
+  </div>
+
+  
+
+
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="contactInfo.js"></script>  
+
+
+  <script type="text/javascript">
+    // valid card name
+    var cname=document.getElementById('cardName');
+    cname.addEventListener('keyup', checkcardName);
+
+    function checkcardName(e){
+        var cnameval=cname.value;
+        var validformat = /^[A-Z\s]{3,}$/;
+
+        if(validformat.test(cnameval)){
+            cname.classList.add('is-valid');
+            cname.classList.remove('is-invalid');
+            
+        }
+        else{
+            cname.classList.add('is-invalid');
+            cname.classList.remove('is-valid');
+        }
+    }
+
+
+    // valid card no
+    var cno=document.getElementById('cardNo');
+    cno.addEventListener('keyup', checkcardNo);
+
+    function checkcardNo(e){
+        var cnoval=cno.value;
+        var validformat = /^[\d]{16}$/;
+
+        if(validformat.test(cnoval)){
+            cno.classList.add('is-valid');
+            cno.classList.remove('is-invalid');
+            
+        }
+        else{
+            cno.classList.add('is-invalid');
+            cno.classList.remove('is-valid');
+        }
+    }
+
+
+    // valid card expire date
+    var cexp=document.getElementById('cardExpireDate');
+    cexp.addEventListener('keyup', checkcardExp);
+
+    function checkcardExp(e){
+      var cexpval=cexp.value;
+      var validformat = /^[0-1][0-9]\/[0-9][0-9]$/;
+
+      if(validformat.test(cexpval)){
+            cexp.classList.add('is-valid');
+            cexp.classList.remove('is-invalid');
+            
+      }else{
+            cexp.classList.add('is-invalid');
+            cexp.classList.remove('is-valid');
+      }
+    }
+
+    // valid card cvc
+    var ccvc=document.getElementById('cardCVC');
+    ccvc.addEventListener('keyup', checkcardCVC);
+
+    function checkcardCVC(e){
+      var ccvcval=ccvc.value;
+      var validformat = /^[1-9]{3}$/;
+
+      if(validformat.test(ccvcval)){
+          ccvc.classList.add('is-valid');
+          ccvc.classList.remove('is-invalid');
+            
+      }else{
+          ccvc.classList.add('is-invalid');
+          ccvc.classList.remove('is-valid');
+      }
+    }
+
+      
+  </script>
+
+
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

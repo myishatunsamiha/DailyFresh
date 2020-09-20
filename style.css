@@ -1,0 +1,73 @@
+body {
+  background-color: rgb(212, 238, 173);
+}
+.color_nav {
+  color: rgb(240, 234, 187);
+}
+
+.carousel-item {
+  margin-top: 32px;
+}
+.cart_button {
+  background-color: rgb(45, 183, 218);
+}
+.cart_button:hover {
+  background-color: rgb(110, 116, 103);
+  box-shadow: 0 10px 6px -6px #777777;
+}
+
+.carousel-indicators li {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  text-indent: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: #0000ff;
+  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.carousel-indicators .active {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background-color: #ffff99;
+}
+
+.card,
+.card-img-top {
+  border: none;
+  border-radius: 10px;
+}
+
+.caroImg {
+  height: 75vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+}
+
+h1 {
+  font-family: "Lobster", cursive;
+}
+.modal-content{
+  background-color:rgb(225, 238, 221);
+  color: black;
+}
+
+.modal-dialog{
+  width: 85%;
+  margin:auto;
+}
+
+.textInputBg {
+  background-color: rgba(40, 44, 36, 0.219);
+}
+
+.textInputBg:focus {
+  background-color: rgba(210, 216, 205, 0.808);
+}
+

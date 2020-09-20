@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+
+  <!-- user for cart icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+
+
+  <title>DailyFresh</title>
+</head>
+
+<body>
+
+
+  <div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(37, 34, 34)">
+      <!-- Toggler. show collapsed navbar when reach large screen -->
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarMain"
+        aria-controls="navbarToggler1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <!-- includes the 3 bar icon -->
+      </button>
+
+      <!-- brand name -->
+      <a href="#" class="navbar-brand text-secondary"><img src="/images/logo_2.png" alt="StyleClothing" height="50"
+          width="120" loading="lazy" /></a>
+
+      <!-- navbar content -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <!-- unordered list -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link color_nav" href="home.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+          <!--  <a class="nav-link color_nav" data-toggle="modal" data-target="#modalLoginRegisterAlert">Order</a>   -->
+
+            <a class="nav-link color_nav" href="order.html">Order</a> 
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link color_nav" href="admin.html">Admin</a>
+          </li>
+
+        </ul>
+
+        <!-- form -->
+        <form class="form-inline">
+          <input type="search" class="form-control mr-lg-2 d-none d-lg-block" placeholder="Search" aria-label="Search"
+            style="border-radius: 10px;" />
+
+          <button class="btn btn-outline-info mr-lg-2 d-none d-lg-block" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+
+          <button class="btn btn-info mr-2" type="button" data-toggle="modal" data-target="#modalLogin">
+            Log In
+          </button>
+
+          <button class="btn btn-info mr-2" type="button" data-toggle="modal" data-target="#modalRegister">
+            Register
+          </button>
+
+          <!-- <a href="#" class="btn btn-outline-info" data-toggle="modal" data-target="#cartDetailsModal"
+            style="border-radius: 50%;">
+            <i class="fa fa-shopping-cart"></i>
+          </a> -->
+        </form>
+      </div>
+    </nav>
+    <!-- End of nav bar -->
+
+    <!-- modal for LogIn or register alert (navbar) -->
+    <div class="modal fade" id="modalLoginRegisterAlert" tabindex="-1" role="dialog" aria-labelledby="LoginRegisterAlertLabel"
+      aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h1 style="color:firebrick">Login or Register to Place Order</h1>
+          </div>
+            
+        </div>
+      </div>
+    </div>
+    <!-- End of Log In modal -->
+
+
+
+    <!-- modal for Log In -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel"
+      aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLoginLabel">
+              Log In Credentials
+            </h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form class="" novalidate>
+              <div class="form-group">
+                <label for="loginUname">Usename</label>
+                <input type="text" class="form-control textInputBg" id="loginUname" value="" placeholder="username" 
+                  required />
+                <small style="color: gray;">Min len 6, start with DF- followed by 3 digits, minimum 3 letters, no whitespace</small>
+              </div>
+
+
+              <div class="form-group">
+                <label for="loginPass">Password</label>
+                <input type="password" class="form-control textInputBg" id="loginPass"  placeholder="password" required />
+                <small style="color: gray;">Min length 6, 1 capital, 1 digit, 1 special character</small>
+
+              </div>
+
+              <input type="submit" class="btn btn-info btn-block" value="Submit" id="loginSubmit">
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- End of Log In modal -->
+
+    <!-- modal for Register-->
+    <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="modalRegisterLabel"
+      aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRegisterLabel">Register</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form class=""  method="" novalidate>
+
+              <div class="row">
+                <div class="col-12 ">
+                  <div class="form-group">
+                    <label for="registerUname">Username</label>
+                    <input type="tel" class="form-control textInputBg" id="registerUname" placeholder="Username"/>
+                    <small style="color: gray;">DF-followed by 3 digits,min 3 letters,no space,min len 6</small>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="vaildFname">First Name</label>
+                    <input type="text" class="form-control textInputBg" id="validFname" value="" placeholder="First Name"/>
+                    <small style="color: gray;">start with capital,min 2 letters,no space</small>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="vaildLname">Last Name</label>
+                    <input type="text" class="form-control textInputBg" id="validLname" value="" placeholder="Last Name" required />
+                    <small style="color: gray;">start with capital,min 2 letters,no space</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 ">
+                  <div class="form-group">
+                    <label for="vaildTel">Phone</label>
+                    <input type="tel" class="form-control textInputBg" id="validTel" placeholder="Phone Number" required />
+                    <small style="color: gray;">start with +8801 followed by 9 digits</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="vaildCity">City</label>
+                    <select class="custom-select textInputBg" required>
+                      <option selected value="Dhaka">Dhaka</option>
+                      <option value="Chittagong">Chittagong</option>
+                      <option value="Sylhet">Sylhet</option>
+                      <option value="Khulna">Khulna</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="vaildArea">Area</label>
+                    <select class="custom-select textInputBg" required>
+                      <option selected value="Banasree">Banasree</option>
+                      <option value="Azimpur">Azimpur</option>
+                      <option value="Dhanmondi">Dhanmondi</option>
+                      <option value="Uttara">Uttara</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="row">
+              
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="validRoad">Road No.</label>
+                    <input type="text" class="form-control textInputBg" id="validRoad" placeholder="Road No."/>
+                    <small style="color: gray;">1 to 4 digits long</small>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="validHouse">House No.</label>
+                    <input type="text" class="form-control textInputBg" id="validHouse" placeholder="House No."/>
+                    <small style="color: gray;">1 to 4 digits long</small>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="registerPass">Password</label>
+                    <input type="password" class="form-control textInputBg" id="registerPass" placeholder="Password" required />
+                    <small style="color: gray;">Min length 6, 1 capital, 1 digit, 1 special character</small>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="registerConfirmPass">Confirm Password</label>
+                    <input type="password" class="form-control textInputBg" id="registerConfirmPass" placeholder="Confirm Password" required />
+                    <small style="color: gray;">Enter same password</small>
+                  </div>
+                </div>
+              </div>
+
+
+             <input type="submit" class="btn btn-info btn-block" value="Submit"> 
+              
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- End of Register modal -->
+
+
+
+
+    <a href="#" class="btn btn-outline-light" data-toggle="modal" data-target="#cartDetailsModal"
+      style="border-radius: 200px; position:fixed; top:12%; right:0%; z-index:7;">
+      <i class="fa fa-shopping-cart"></i><br />
+      <small><b>Selected Items</b></small><br />
+
+    </a>
+
+
+    <!-- Cart Modal/ Selected Items Modal -->
+    <div class="modal fade" id="cartDetailsModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      role="dialog" aria-labelledby="cartDetailsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cartDetailsModalLabel">Cart Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="container-fluid" style="height:100vh;" id="cartDetails">
+              <div class="table-responsive-sm">
+                <table class="table">
+                  <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Add</th>
+                    <th>Qty</th>
+                    <th>Deduct</th>
+                    <th>Price(Tk)</th>
+                    <th>Delete</th>
+                  </tr>
+
+                  <tr><td><img src="images/carrot.png" alt="" style="width:50px; height: 30px;"/></td><td><h6 class="card-title">Carrot</h6></td><td><button type="button" class="btn btn-success btn-xs" style="border-radius: 10px;" onclick=increaseQty()>+</button></td><td><h6 class="card-title">1</h6></td><td><button type="button" class="btn btn-danger btn-xs" style="border-radius: 10px;" onclick=decreaseQty()>-</button></td><td><h6 class="card-title" id="totalAmnt">50tk</h6></td><td><button class="btn btn-xs" style="border-radius: 10px;" onclick=deleteCartItem()><i class="fa fa-close"></i></button></td><input type="hidden" value="50"></tr>
+                  <!-- add js -->
+                </table>
+              </div>
+            </div>
+          </div>
+
+         
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#modalLoginRegisterAlert">Place Order<i class="fa fa-shopping-cart"></i></a>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of cart modal -->
+
+    <br /><br />
+
+
+    <!-- Carousel Display -->
+    <div id="carouselId" class="carousel slide" data-ride="carousel">
+      <!-- carousel indicators -->
+
+      <div class="carousel-inner" id="caroInner">
+        <div class="carousel-item active" data-interval="2000">
+          <img src="images/carousel_vege1.png" class="d-block caroImg" alt=""/>
+        </div>
+
+        <div class="carousel-item" data-interval="2000">
+          <img src="images/carousel_vege4.png" class="d-block caroImg" alt=""/>
+        </div>
+
+        <div class="carousel-item" data-interval="2000">
+          <img src="images/carousel_vege5.png" class="d-block caroImg" alt=""/>
+        </div>
+      </div>
+
+      <!--right move buttons -->
+      <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <!-- right move buttons -->
+      <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+
+
+
+
+    <br> <br><br>
+    <!-- Everyday Deals: card deck -->
+
+    <h1 style="text-align: center">Discounted Products</h1>
+    <div class="card-deck shadow m-1" style="border-radius: 10px; background-color: rgb(240, 234, 187); height:30%;">
+
+      <div class="row p-4">
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left">
+          <div class="card shadow h-100">
+            <img src="images/Hilsa.jpg" alt="" class="card-img-top w-100" style="height: 30vh" />
+            <div class="card-body p-3" style="height: 35vh; text-align: center;">
+              <div style="position: relative; height: 100%">
+                <h5 class="card-title">Product: Hilsa</h5>
+                <p class="card-text">Regular price: <span style="text-decoration:line-through;">900 tk/kg</span></p>
+                <p class="card-text">Discount price: 800 tk/kg</p>
+                <p class="card-text d-none">Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi earum molestias, nam aliquam delectus incidunt qui vel itaque autem suscipit sit odio
+                  numquam quos cupiditate dolore quibusdam ipsa facere. Maxime?</p>
+                <input id="prodQty" name="proQty" type="hidden" value="1">
+
+                <a href="#" class="btn btn-info btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"
+                  data-toggle="modal">View Details</a>
+
+                <a href="#" class="btn btn-primary btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 0px; left: 0px">Add to Cart <i
+                    class="fa fa-shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left">
+          <div class="card shadow h-100">
+            <img src="images/carrot.png" alt="" class="card-img-top w-100" style="height: 30vh" />
+            <div class="card-body p-3" style="height: 35vh; text-align: center;">
+              <div style="position: relative; height: 100%">
+                <h5 class="card-title">Product: Carrot</h5>
+                <p class="card-text">Regular price: <span style="text-decoration:line-through;">50 tk/kg</span></p>
+                <p class="card-text">Discount price: 45 tk/kg</p>
+                <p class="card-text d-none">Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi earum molestias, nam aliquam delectus incidunt qui vel itaque autem suscipit sit odio
+                  numquam quos cupiditate dolore quibusdam ipsa facere. Maxime?</p>
+                <input id="prodQty" name="proQty" type="hidden" value="1">
+
+                <a href="#" class="btn btn-info btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"
+                  data-toggle="modal">View Details</a>
+
+                <a href="#" class="btn btn-primary btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 0px; left: 0px">Add to Cart <i
+                    class="fa fa-shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left">
+          <div class="card shadow h-100">
+            <img src="images/beef.png" alt="" class="card-img-top w-100" style="height: 30vh" />
+            <div class="card-body p-3" style="height: 35vh; text-align: center;">
+              <div style="position: relative; height: 100%">
+                <h5 class="card-title">Product: Beaf</h5>
+                <p class="card-text">Regular price: <span style="text-decoration:line-through;">560 tk/kg</span></p>
+                <p class="card-text">Discount price: 500 tk/kg</p>
+                <p class="card-text d-none">Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi earum molestias, nam aliquam delectus incidunt qui vel itaque autem suscipit sit odio
+                  numquam quos cupiditate dolore quibusdam ipsa facere. Maxime?</p>
+                <input id="prodQty" name="proQty" type="hidden" value="1">
+
+                <a href="#" class="btn btn-info btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"
+                  data-toggle="modal">View Details</a>
+
+                <a href="#" class="btn btn-primary btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 0px; left: 0px" >Add to Cart <i
+                    class="fa fa-shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left">
+          <div class="card shadow h-100">
+            <img src="images/Hilsa.jpg" alt="" class="card-img-top w-100" style="height: 30vh" />
+            <div class="card-body p-3" style="height: 35vh; text-align: center;">
+              <div style="position: relative; height: 100%">
+                <h5 class="card-title">Product: Hilsa</h5>
+                <p class="card-text">Regular price: <span style="text-decoration:line-through;">900 tk/kg</span></p>
+                <p class="card-text">Discount price: 800 tk/kg</p>
+                <p class="card-text d-none">Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi earum molestias, nam aliquam delectus incidunt qui vel itaque autem suscipit sit odio
+                  numquam quos cupiditate dolore quibusdam ipsa facere. Maxime?</p>
+                <input id="prodQty" name="proQty" type="hidden" value="1">
+
+                <a href="#" class="btn btn-info btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"
+                  data-toggle="modal">View Details</a>
+
+                <a href="#" class="btn btn-primary btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 0px; left: 0px">Add to Cart <i
+                    class="fa fa-shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left">
+          <div class="card shadow h-100">
+            <img src="images/carrot.png" alt="" class="card-img-top w-100" style="height: 30vh" />
+            <div class="card-body p-3" style="height: 35vh; text-align: center;">
+              <div style="position: relative; height: 100%">
+                <h5 class="card-title">Product: Carrot</h5>
+                <p class="card-text">Regular price: <span style="text-decoration:line-through;">50 tk/kg</span></p>
+                <p class="card-text">Discount price: 45 tk/kg</p>
+                <p class="card-text d-none">Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi earum molestias, nam aliquam delectus incidunt qui vel itaque autem suscipit sit odio
+                  numquam quos cupiditate dolore quibusdam ipsa facere. Maxime?</p>
+                <input id="prodQty" name="proQty" type="hidden" value="1">
+
+                <a href="#" class="btn btn-info btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"
+                  data-toggle="modal">View Details</a>
+
+                <a href="#" class="btn btn-primary btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 0px; left: 0px" >Add to Cart <i
+                    class="fa fa-shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left">
+          <div class="card shadow h-100">
+            <img src="images/beef.png" alt="" class="card-img-top w-100" style="height: 30vh" />
+            <div class="card-body p-3" style="height: 35vh; text-align: center;">
+              <div style="position: relative; height: 100%">
+                <h5 class="card-title">Product: Beaf</h5>
+                <p class="card-text">Regular price: <span style="text-decoration:line-through;">560 tk/kg</span></p>
+                <p class="card-text">Discount price: 500 tk/kg</p>
+                <p class="card-text d-none">Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi earum molestias, nam aliquam delectus incidunt qui vel itaque autem suscipit sit odio
+                  numquam quos cupiditate dolore quibusdam ipsa facere. Maxime?</p>
+                <input id="prodQty" name="proQty" type="hidden" value="1">
+
+                <a href="#" class="btn btn-info btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"
+                  data-toggle="modal">View Details</a>
+
+                <a href="#" class="btn btn-primary btn-sm btn-block cart_button"
+                  style="position: absolute; bottom: 0px; left: 0px">Add to Cart <i
+                    class="fa fa-shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- End of Card deck -->
+
+
+
+    <!-- Display vegetable products -->
+    <br> <br><br><br>
+    <h1 style="text-align: center" id="vegetable">Vegetables</h1>
+    <div id="carouselId2" class="carousel slide" data-ride="carousel">
+
+      <div class="carousel-inner" id="productInner">
+        <div class="carousel-item active">
+
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/carrot.png" alt="" class="card-img-top w-100"
+            style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Carrot</h5><p class="card-text">45 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#vegetable" class="btn btn-primary btn-sm btn-block cart_button"
+          style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/potato.png" alt="" class="card-img-top w-100"
+          style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Potato</h5><p class="card-text">25 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#vegetable" class="btn btn-primary btn-sm btn-block cart_button"
+          style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+          
+
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/tomato.png" alt="" class="card-img-top w-100"
+          style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Tomato</h5><p class="card-text">65 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#vegetable" class="btn btn-primary btn-sm btn-block cart_button"
+          style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/eggplant.png" alt="" class="card-img-top w-100"
+          style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Eggplant</h5><p class="card-text">45 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#vegetable" class="btn btn-primary btn-sm btn-block cart_button"
+          style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+
+        </div>
+
+        <div class="carousel-item">
+          
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/cucumber.png" alt="" class="card-img-top w-100"
+            style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Cucumber</h5><p class="card-text">45 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#vegetable" class="btn btn-primary btn-sm btn-block cart_button"
+          style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+        </div>
+
+      </div>
+
+
+
+      <a class="carousel-control-prev" href="#carouselId2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black;"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselId2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: black;"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <br /><br />
+    </div>
+
+
+
+    <!-- Display fish & meat products -->
+    <br> <br><br>
+    <h1 style="text-align: center" id="fishmeat">Fish & Meat</h1>
+    <div id="carouselId3" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner" id="productInner">
+          <div class="carousel-item active" data-interval="2000">
+
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/Hilsa.jpg" alt="" class="card-img-top w-100"
+            style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Hilsa</h5><p class="card-text">900 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#fishmeat" class="btn btn-primary btn-sm btn-block cart_button"
+            style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+
+
+        
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/chicken.png" alt="" class="card-img-top w-100"
+            style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Chicken</h5><p class="card-text">300 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#fishmeat" class="btn btn-primary btn-sm btn-block cart_button"
+            style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+         
+
+
+       
+          
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/mutton.png" alt="" class="card-img-top w-100"
+            style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Mutton</h5><p class="card-text">850 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#fishmeat" class="btn btn-primary btn-sm btn-block cart_button"
+            style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+
+        
+          
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/beef.png" alt="" class="card-img-top w-100"
+            style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Beef</h5><p class="card-text">850 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#fishmeat" class="btn btn-primary btn-sm btn-block cart_button"
+            style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+    
+        </div>
+
+
+        <div class="carousel-item">
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-3" style="float: left"><div class="card shadow h-100"><img src="images/beef.png" alt="" class="card-img-top w-100"
+            style="height: 35vh" /><div class="card-body p-3" style="height: 30vh; text-align: center;"><div style="position: relative; height: 100%"><h5 class="card-title">Beef</h5><p class="card-text">850 tk/kg</p><p class="card-text d-none">Description</p><input id="prodQty" name="proQty" type="hidden" value="1"><a href="#" class="btn btn-info btn-sm btn-block cart_button"style="position: absolute; bottom: 40px; left: 0px" data-target="#productDetailsModal"data-toggle="modal">View Details</a><a href="#fishmeat" class="btn btn-primary btn-sm btn-block cart_button"
+            style="position: absolute; bottom: 0px; left: 0px" onclick=addToCart()>Add to Cart <i class="fa fa-shopping-cart"></i></a></div></div></div></div>
+        </div>
+
+
+      </div>
+
+
+
+      <a class="carousel-control-prev" href="#carouselId3" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black;"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselId3" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: black;"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <br /><br />
+    </div>
+
+
+
+
+    <!-- Product Details Modal -->
+    <div class="modal fade" id="productDetailsModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      role="dialog" aria-labelledby="proDetailsModalModalLabel" aria-hidden="true">
+      <!-- stop outside click: data-backdrop, data-keyboard -->
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" id="proDetailsModal">
+        <!-- scrollable modal, vertically center modal position -->
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="proDetailsModalLabel">Product Description</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="container-fluid" style="height:100vh;">
+              <img src="images/carrot.png" alt="" class="w-100" style="height: 35vh" /><br>
+              <br>
+              <h6 class="card-title">Carrot</h6>
+              <h6 class="card-text">50tk</h6>
+              <h6 class="card-text">Tomatoes are the major dietary source of the antioxidant lycopene, which has been
+                linked to many health benefits,
+                including reduced risk of heart disease and cancer.</h6>
+
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick=addToCart()>Add to Cart <i
+                class="fa fa-shopping-cart"></i></button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <!-- Footer -->
+    <div style="background-color: #252323;">
+      <div class="row text-white p-5">
+        <div class="col-12 col-lg-6">
+          <img src="/images/logo_2.png" alt="DailyFresh" height="30" width="90" loading="lazy" />
+          <p style="font-size:90%;">- Buy Fresh, Eat Fresh, Live Healthy</p>
+          <br>
+          <small>Call Us:
+            <a href="#">+01922181860</a>
+          </small>
+          <br>
+          <small>Email:
+            <a href="#">dailyfreshltd@gmail.com</a>
+          </small>
+        </div>
+
+        <div class="col-12 col-lg-2">
+          <h5>Explore</h5>
+
+          <small>
+            <a href="#">Home</a>
+          </small>
+          <br>
+          <small>
+            <a href="#">Order</a>
+          </small>
+          <br>
+          <small>
+            <a href="#">Admin</a>
+          </small>
+          <br>
+        </div>
+
+
+        <div class="col-12 col-lg-2">
+          <h5>Team Work</h5>
+
+          <small>
+            <a href="#">Team Members</a>
+          </small>
+          <br>
+          <small>
+            <a href="#">Who We Are?</a>
+          </small>
+          <br>
+          <small>
+            <a href="#">Objectives</a>
+          </small>
+          <br>
+        </div>
+
+      </div>
+
+      <div>
+        <footer class="text-center text-info">© Copyright 2020</footer>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="home.js"></script>  
+  <script type="text/javascript" src="contactInfo.js"></script>  
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
