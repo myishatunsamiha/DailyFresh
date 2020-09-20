@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    Go to the home page of <a href="home.html">DailyFresh</a>
+<body onload = goToHome()>
+
+    <script>
+        function goToHome(){
+            window.location.replace("home.html");
+        }
+    </script>    
+
 </body>
 </html>
